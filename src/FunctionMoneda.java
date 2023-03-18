@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class Function {
+public class FunctionMoneda {
 
     ConversorDeMonedas moneda = new ConversorDeMonedas();
 

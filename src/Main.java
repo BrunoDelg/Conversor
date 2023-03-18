@@ -3,7 +3,8 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
 
-        Function monedas = new Function();
+        FunctionMoneda monedas = new FunctionMoneda();
+        FunctionTemperatura temp = new FunctionTemperatura();
 
         boolean flag = true;
 
@@ -31,13 +32,34 @@ public class Main {
                     }else {
                         JOptionPane.showMessageDialog(null,"Valor invalido","Error",JOptionPane.ERROR_MESSAGE,null);
                     }
-                break;
+                    break;
+
+                case "Conversor de temperatura":
+                    String temperatura = JOptionPane.showInputDialog("Ingresa los grados que deseas convertir");
+                    if (ValidarNumero(temperatura)){
+                        double input2 = Double.parseDouble(temperatura);
+                        temp.ConvertirTemperatura(input2);
+
+                        int respuesta = JOptionPane.showConfirmDialog(null,"¿Deseas realizar otra conversion?");
+                        if (JOptionPane.OK_OPTION == respuesta){
+                            System.out.println("Selecciona opción afirmativa");
+                        }else{
+                            flag = false;
+                            JOptionPane.showMessageDialog(null,"Proceso Terminado");
+
+                        }
+                    }else {
+                        JOptionPane.showMessageDialog(null,"Valor invalido","Error",JOptionPane.ERROR_MESSAGE,null);
+                    }
+                    break;
+
+
+
+                    }
 
             }
 
         }
-
-    }
     public static boolean ValidarNumero(String input){
         try{
             double x = Double.parseDouble(input);
